@@ -3,7 +3,9 @@ services:
     image: clientemqtt
     container_name: clientemqtt
     environment:
-      - TZ=America/Argentina/Buenos_Aires 
-      - SERVIDOR=${SERVIDOR} #Se reemplazará por la env var SERVIDOR defineda en .env
-      - TOPICO=${TOPICO}
+      - TZ=America/Argentina/Buenos_Aires
+      - SERVIDOR=${SERVIDOR}
+      - TOPICO1=${TOPICO1}
+      - TOPICO2=${TOPICO2}
+      - TOPICO_PARA_PUBLICAR=${TOPICO_PARA_PUBLICAR}
     restart: unless-stopped
