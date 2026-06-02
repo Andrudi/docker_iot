@@ -111,6 +111,11 @@ services:
       - MARIADB_USER=${MARIADB_USER}
       - MARIADB_USER_PASS=${MARIADB_USER_PASS}
       - MARIADB_DB=${MARIADB_DB}
+      - SERVIDOR=${SERVIDOR}
+      - PUERTO_MQTTS=${PUERTO_MQTTS}
+      - MQTT_USR=${MQTT_USR}
+      - MQTT_PASS=${MQTT_PASS}
+      - ID_DISPOSITIVO=${ID_DISPOSITIVO}
     restart: unless-stopped
     depends_on:
       - mariadb
