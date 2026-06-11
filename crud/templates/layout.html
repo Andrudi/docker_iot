@@ -4,22 +4,35 @@
 <head>
   <meta charset="UTF-8" />
   <title>FLASK CRUD 1.6</title>
-  <link rel="stylesheet" href="https://bootswatch.com/5/cosmo/bootstrap.min.css"> 
-   <!-- <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css"> -->
+  
+  <link id="theme-stylesheet" rel="stylesheet" href="https://bootswatch.com/5/cosmo/bootstrap.min.css"> 
+  
   {% with messages = get_flashed_messages() %} {% if messages %}
   {% for message in messages %}
   <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>{{ message }}
+    <strong>{{ message }}</strong>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
   {% endfor %}
   {% endif %} {% endwith %}
+  
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">CRUD</a>
+      
       {% if session.get("user_id") %}
-      <div class="d-flex">
-        <div class="nav-item pe-3 pt-2">{{ session.get("user_id") }}</div>
+      <div class="d-flex align-items-center">
+        <div class="nav-item pe-3 text-white">{{ session.get("user_id") }}</div>
+        
+        <div class="dropdown me-3">
+          <button class="btn btn-info btn-sm dropdown-toggle" type="button" id="btn-theme-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            Modo Claro
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btn-theme-dropdown">
+            <li><a class="dropdown-item theme-selector" href="#" data-theme="light">Claro</a></li>
+            <li><a class="dropdown-item theme-selector" href="#" data-theme="dark">Oscuro</a></li>
+          </ul>
+        </div>
         <a href="{{url_for('logout')}}" class="btn btn-secondary my-2 my-sm-0" type="submit">Salir</a>
       </div>
       {% endif %}
